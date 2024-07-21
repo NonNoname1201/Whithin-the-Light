@@ -1,0 +1,60 @@
+void toggleFullscreen(GLFWwindow *window, int &windowedWidth, int &windowedHeight, int &windowedPosX, int &windowedPosY,
+                      bool &isFullscreen) {
+    if (isFullscreen) {
+        // Switch to windowed mode
+        glfwSetWindowMonitor(window, nullptr, windowedPosX, windowedPosY, windowedWidth, windowedHeight, 0);
+        isFullscreen = false;
+    } else {
+        // Store current window size and position
+        glfwGetWindowSize(window, &windowedWidth, &windowedHeight);
+        glfwGetWindowPos(window, &windowedPosX, &windowedPosY);
+
+        // Get the primary monitor and its video mode
+        GLFWmonitor *monitor = glfwGetPrimaryMonitor();
+        const GLFWvidmode *mode = glfwGetVideoMode(monitor);
+
+        // Switch to fullscreen
+        glfwSetWindowMonitor(window, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
+        isFullscreen = true;
+    }
+}
+
+int main() {
+    if (!glfwInit()) {
+        std::cerr << "Failed to initialize GLFW\n";
+        return -1;
+    }
+
+    // Get the primary monitor
+    GLFWmonitor *primaryMonitor = glfwGetPrimaryMonitor();
+    // Get the video mode for the primary monitor
+    const GLFWvidmode *mode = glfwGetVideoMode(primaryMonitor);
+
+    // Create a fullscreen window using the primary monitor's video mode
+    GLFWwindow *window = glfwCreateWindow(1280, 720, "Game Engine Window", nullptr, nullptr);
+
+    if (!window) {
+        std::cerr << "Failed to create GLFW window\n";
+        glfwTerminate();
+        return -1;
+    }
+
+    glfwMakeContextCurrent(window);
+
+    while (!glfwWindowShouldClose(window)) {
+        if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS) {
+            static int windowedWidth = 1280;
+            static int windowedHeight = 720;
+            static int windowedPosX = 100;
+            static int windowedPosY = 100;
+            static bool isFullscreen = false;
+            toggleFullscreen(window, windowedWidth, windowedHeight, windowedPosX, windowedPosY, isFullscreen);
+        }
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
+
+    glfwDestroyWindow(window);
+    glfwTerminate();
+    return 0;
+}
