@@ -2,9 +2,9 @@
 // Created by User on 21.07.2024.
 //
 
-#include <OGL3D/Window/Window.h>
-#include <glad/glad.h>
-#include <glad/glad_wgl.h>
+#include "OGL3D/Window/Window.h"
+#include "glad/glad.h"
+#include "glad/glad_wgl.h"
 #include <Windows.h>
 #include <cassert>
 
