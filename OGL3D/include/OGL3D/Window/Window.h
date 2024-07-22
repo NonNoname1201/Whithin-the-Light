@@ -11,8 +11,12 @@ public:
 
     ~Window();
 
+    void makeCurrentContext();
+    void present(bool vSync);
+
 private:
-    void* m_WindowHandle = nullptr;
+    void *m_WindowHandle = nullptr;
+    void *m_WindowDC = nullptr;
 };
 
 

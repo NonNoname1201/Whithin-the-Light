@@ -12,5 +12,12 @@ add_executable(Within_the_Light Game/main.cpp
         OGL3D/include/OGL3D/Game/Game.h
         OGL3D/source/OGL3D/Game/Game.cpp
         OGL3D/include/OGL3D/GraphicsEngine/GraphicsEngine.h
-        OGL3D/source/OGL3D/GraphicsEngine/GraphicsEngine.cpp)
+        OGL3D/source/OGL3D/GraphicsEngine/GraphicsEngine.cpp
+        OGL3D/vendor/glad/src/glad_wgl.c
+        OGL3D/vendor/glad/src/glad.c
+        OGL3D/include/OGL3D/Math/Vect4.h
+        OGL3D/source/OGL3D/Math/Vect4.cpp
+        OGL3D/include/OGL3D/Prerequisites.h)
+
+target_link_libraries(Within_the_Light opengl32)
 
