@@ -10,10 +10,12 @@ LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
     switch (message) {
         case WM_DESTROY: {
             Window *window = reinterpret_cast<Window*>(GetWindowLongPtr(hWnd, GWLP_USERDATA));
-            window->onDestroy();
             break;
         }
-
+        case WM_CLOSE: {
+            PostQuitMessage(0);
+            break;
+        }
         default:
             return DefWindowProc(hWnd, message, wParam, lParam);
     }
@@ -26,12 +28,13 @@ Window::Window() {
     wc.lpszClassName = "OGL3DWindow";
     wc.lpfnWndProc = WindowProc;
 
-    assert(RegisterClassEx(&wc));
+    auto classId = RegisterClassEx(&wc);
+    assert(classId);
 
     RECT rc = {0, 0, 1024, 768};
     AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW | WS_CAPTION | WS_SYSMENU, false);
 
-    m_WindowHandle = CreateWindowEx(0, "OGL3DWindow", "Within the Light",
+    m_WindowHandle = CreateWindowEx(0, (LPCTSTR)classId, "Within the Light",
                                     WS_OVERLAPPEDWINDOW | WS_CAPTION | WS_SYSMENU, CW_USEDEFAULT,
                                     CW_USEDEFAULT, rc.right - rc.left, rc.bottom - rc.top,
                                     nullptr, nullptr, nullptr, nullptr);
@@ -57,14 +60,3 @@ Window::~Window() {
     DestroyWindow((HWND) m_WindowHandle);
 
 }
-
-void Window::onDestroy() {
-    if (m_WindowHandle) {
-        DestroyWindow((HWND)m_WindowHandle);
-        m_WindowHandle = nullptr;
-    }
-}
-bool Window::isClosed() {
-    return !m_WindowHandle;
-}
-

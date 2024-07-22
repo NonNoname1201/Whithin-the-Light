@@ -2,8 +2,8 @@
 // Created by User on 21.07.2024.
 //
 
-#ifndef UNTITLED_GAME_H
-#define UNTITLED_GAME_H
+#ifndef WITHIN_THE_LIGHT_GAME_H
+#define WITHIN_THE_LIGHT_GAME_H
 
 #include <OGL3D/Window/Window.h>
 #include <memory>
@@ -21,4 +21,4 @@ protected:
     bool m_isRunning = true;
     std::unique_ptr<Window> m_Window;
 };
-#endif //UNTITLED_GAME_H
+#endif //WITHIN_THE_LIGHT_GAME_H

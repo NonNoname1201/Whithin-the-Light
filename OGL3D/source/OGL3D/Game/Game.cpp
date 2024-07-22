@@ -6,18 +6,24 @@
 #include <OGL3D/Window/Window.h>
 #include <Windows.h>
 
+#include <memory>
+
 Game::Game() {
-    m_Window = std::unique_ptr<Window>(new Window());
+    m_Window = std::make_unique<Window>();
 }
 
-Game::~Game() {}
+Game::~Game() = default;
 
 void Game::run() {
-    MSG msg = {};
-    while (m_isRunning && !m_Window->isClosed()) {
-        if(PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE)) {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
+    while (m_isRunning) {
+        MSG msg = {};
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE)) {
+            if (msg.message == WM_QUIT) {
+                m_isRunning = false;
+            } else {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
         }
 
         Sleep(1);
