@@ -1,4 +1,3 @@
-#include <GLFW/glfw3.h>
 #include <OGL3D/Game/Game.h>
 #include <iostream>
 

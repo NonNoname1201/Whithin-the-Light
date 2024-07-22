@@ -11,4 +11,6 @@ add_executable(Within_the_Light Game/main.cpp
         OGL3D/source/OGL3D/Window/Window.cpp
         OGL3D/include/OGL3D/Game/Game.h
         OGL3D/source/OGL3D/Game/Game.cpp
-target_link_libraries(Within_the_Light glfw3)
+        OGL3D/include/OGL3D/GraphicsEngine/GraphicsEngine.h
+        OGL3D/source/OGL3D/GraphicsEngine/GraphicsEngine.cpp)
+
