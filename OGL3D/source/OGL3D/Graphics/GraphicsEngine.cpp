@@ -24,3 +24,9 @@ VertexArrayObjectPtr GraphicsEngine::createVertexArrayObject(const VertexBufferD
 void GraphicsEngine::setVertexArrayObject(const VertexArrayObjectPtr &vertexArrayObject) {
     glBindVertexArray(vertexArrayObject->getVertexArrayObjectId());
 }
+
+void GraphicsEngine::drawPolygon(uIntegerStandard vertexCount, uIntegerStandard offset) {
+
+    glDrawArrays(GL_TRIANGLES, offset, vertexCount);
+
+}

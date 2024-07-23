@@ -13,9 +13,12 @@ public:
     ~VertexArrayObject();
 
     uIntegerStandard getVertexArrayObjectId();
+    uIntegerStandard getVertexBufferSize();
+    uIntegerStandard getVertexSize();
 private:
     uIntegerStandard m_vertexBufferId = 0;
     uIntegerStandard m_vertexArrayObjectId = 0;
+    VertexBufferData m_vertexBufferData;
 };
 
 #endif //WITHIN_THE_LIGHT_VERTEXARRAYOBJECT_H

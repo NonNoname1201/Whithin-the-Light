@@ -21,6 +21,8 @@ VertexArrayObject::VertexArrayObject(const VertexBufferData &vertexBufferData) {
 
     glBindVertexArray(0);
 
+    m_vertexBufferData = vertexBufferData;
+
 }
 
 VertexArrayObject::~VertexArrayObject() {
@@ -30,4 +32,12 @@ VertexArrayObject::~VertexArrayObject() {
 
 uIntegerStandard VertexArrayObject::getVertexArrayObjectId() {
     return m_vertexArrayObjectId;
+}
+
+uIntegerStandard VertexArrayObject::getVertexBufferSize() {
+    return m_vertexBufferData.vertexSize * m_vertexBufferData.listSize;
+}
+
+uIntegerStandard VertexArrayObject::getVertexSize() {
+    return m_vertexBufferData.vertexSize;
 }

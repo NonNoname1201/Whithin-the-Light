@@ -20,6 +20,8 @@ public:
     void setViewport(const Rect& size);
 
     void setVertexArrayObject(const VertexArrayObjectPtr &vertexArrayObject);
+
+    void drawPolygon(uIntegerStandard vertexCount, uIntegerStandard offset);
 };
 
 #endif //WITHIN_THE_LIGHT_GRAPHICSENGINE_H

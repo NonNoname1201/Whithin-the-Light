@@ -32,6 +32,8 @@ protected:
     bool m_isRunning = true;
     std::unique_ptr<GraphicsEngine> m_GraphicsEngine;
     std::unique_ptr<Window> m_Window;
+
+    VertexArrayObjectPtr m_vertexArrayObject;
 };
 
 #endif //WITHIN_THE_LIGHT_GAME_H
