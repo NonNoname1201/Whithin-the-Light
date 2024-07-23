@@ -3,7 +3,7 @@
 //
 
 #include "OGL3D/Game/Game.h"
-#include "OGL3D/GraphicsEngine/GraphicsEngine.h"
+#include "OGL3D/Graphics/GraphicsEngine.h"
 #include <Windows.h>
 
 void Game::run() {

@@ -105,3 +105,9 @@ void Window::present(bool vSync) {
     wglSwapIntervalEXT(vSync);
     wglSwapLayerBuffers(GetDC(HWND(m_WindowHandle)), WGL_SWAP_MAIN_PLANE);
 }
+
+Rect Window::getInnerSize() {
+    RECT m_Rect;
+    GetClientRect((HWND) m_WindowHandle, &m_Rect);  // Get the size of the window
+    return Rect(m_Rect.right - m_Rect.left, m_Rect.bottom - m_Rect.top);
+}

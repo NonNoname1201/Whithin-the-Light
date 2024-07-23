@@ -2,7 +2,7 @@
 // Created by User on 22.07.2024.
 //
 
-#include "OGL3D/GraphicsEngine/GraphicsEngine.h"
+#include "OGL3D/Graphics/GraphicsEngine.h"
 #include "glad/glad.h"
 #include "glad/glad_wgl.h"
 #include <cassert>

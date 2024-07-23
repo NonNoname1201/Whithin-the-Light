@@ -6,6 +6,7 @@
 #define WITHIN_THE_LIGHT_GRAPHICSENGINE_H
 
 #include <OGL3D/Math/Vect4.h>
+#include <OGL3D/Math/Rect.h>
 
 class GraphicsEngine {
 public:
@@ -14,6 +15,7 @@ public:
 
 public:
     void clear(const Vect4& color);
+    void setViewport(const Rect& size);
 };
 
 #endif //WITHIN_THE_LIGHT_GRAPHICSENGINE_H
