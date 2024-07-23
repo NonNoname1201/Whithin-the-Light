@@ -20,7 +20,8 @@ public:
     ~Rect() {}
 
 public:
-    integerStandard left = 0, top = 0, width = 0, height = 0;
+    integerStandard left = 0, top = 0;
+    uIntegerStandard width = 0, height = 0;
 };
 
 #endif //WITHIN_THE_LIGHT_RECT_H
