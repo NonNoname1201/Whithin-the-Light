@@ -14,8 +14,12 @@ public:
     ~GraphicsEngine();
 
 public:
+    VertexArrayObjectPtr createVertexArrayObject(const VertexBufferData &vertexBufferData);
+public:
     void clear(const Vect4& color);
     void setViewport(const Rect& size);
+
+    void setVertexArrayObject(const VertexArrayObjectPtr &vertexArrayObject);
 };
 
 #endif //WITHIN_THE_LIGHT_GRAPHICSENGINE_H

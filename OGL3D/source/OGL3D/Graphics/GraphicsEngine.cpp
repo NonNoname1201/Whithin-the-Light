@@ -3,6 +3,7 @@
 //
 
 #include <OGL3D/Graphics/GraphicsEngine.h>
+#include <OGL3D/Graphics/VertexArrayObject.h>
 #include <glad/glad.h>
 #include <cassert>
 #include <stdexcept>
@@ -14,4 +15,12 @@ void GraphicsEngine::clear(const Vect4 &color) {
 
 void GraphicsEngine::setViewport(const Rect &size) {
     glViewport(size.left, size.top, size.width, size.height);
+}
+
+VertexArrayObjectPtr GraphicsEngine::createVertexArrayObject(const VertexBufferData &vertexBufferData) {
+    return std::make_shared<VertexArrayObject>(vertexBufferData);
+}
+
+void GraphicsEngine::setVertexArrayObject(const VertexArrayObjectPtr &vertexArrayObject) {
+    glBindVertexArray(vertexArrayObject->getVertexArrayObjectId());
 }

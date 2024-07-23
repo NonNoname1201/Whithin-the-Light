@@ -22,6 +22,8 @@ add_executable(Within_the_Light Game/main.cpp
         OGL3D/source/OGL3D/Window/Win32/Win32Window.cpp
         OGL3D/source/OGL3D/Window/Win32/Win32Window.cpp
         OGL3D/include/OGL3D/Math/Rect.h
+        OGL3D/include/OGL3D/Graphics/VertexArrayObject.h
+        OGL3D/source/OGL3D/Graphics/VertexArrayObject.cpp
 )
 
 target_link_libraries(Within_the_Light opengl32)
